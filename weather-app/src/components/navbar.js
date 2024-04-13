@@ -22,18 +22,19 @@ function Navbar() {
   },[]);
    const handlechange = (event) => {
     setval(event.target.value);
-    console.log(inpval); // Update state with input value
+    console.log(inpval); 
   };
   const fetchapi = ( )=>{
-
- 
-  }
-    fetch(
+      fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon=${lon}&appid=60efc753bb3e74b872e7cb9f105529fe`
     )
       .then((response) => response.json())
       .then((data) => setdataw(data.main))
       .catch((error) => console.error(error));
+
+ 
+  }
+  
    
 
   return (
