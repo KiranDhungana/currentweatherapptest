@@ -17,12 +17,21 @@ function Navbar() {
       navigator.geolocation.getCurrentPosition(function (position) {
         setlat(position.coords.latitude);
         setlon(position.coords.longitude);
+        
         console.log(`Latitude: ${lat}, Longitude: ${lon}`);
       });
     } else {
       console.log("Geolocation is not supported by this browser.");
     }
+   
 
+      fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=60efc753bb3e74b872e7cb9f105529fe`
+    )
+      .then((response) => response.json())
+      .then((data) => setdataw(data.main))
+      .catch((error) => console.error(error));
+    
     
   },[]);
  
